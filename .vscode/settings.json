@@ -1,0 +1,25 @@
+{
+  "better-extension-manager.workspace": [
+    "christian-kohler.npm-intellisense",
+    "cschlosser.doxdocgen",
+    "dbaeumer.vscode-eslint",
+    "kevscript.vscolors",
+    "mrmlnc.vscode-pugbeautify",
+    "mrmlnc.vscode-puglint",
+    "ms-vscode.vscode-js-profile-flame",
+    "ms-vsliveshare.vsliveshare",
+    "yzhang.markdown-all-in-one",
+    "yoavbls.pretty-ts-errors",
+    "Prisma.prisma",
+    "Orta.vscode-twoslash-queries",
+    "ms-vscode.vscode-typescript-next",
+    "qcz.restart-ts-server-button",
+    "chamboug.js-auto-backticks"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
+  }
+}

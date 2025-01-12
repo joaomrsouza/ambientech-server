@@ -1,0 +1,12 @@
+extends ./templates/default
+
+block head
+  link(rel="stylesheet" href="/stylesheets/root.css")
+
+block content
+  h1 Temperatura
+
+  ul
+    each td in tempData
+      li Timestamp: #{td.timestamp} | Value: #{td.value}
+

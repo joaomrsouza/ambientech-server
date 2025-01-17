@@ -1,12 +1,39 @@
+//- extends { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 extends ./templates/default
 
 block head
   link(rel="stylesheet" href="/stylesheets/root.css")
 
-block content
-  h1 Temperatura
+mixin sensorInformation(title, value, updateDate)
+  div.sensorInformation
+    .header
+      span= title 
+    .value 
+      span= value
+    .update
+      span Última atualização   
+      span=updateDate
 
-  ul
-    each td in tempData
-      li Timestamp: #{td.timestamp} | Value: #{td.value}
+block content
+  header Ambientech
+  main 
+    h2 Acompanhe o seu ambiente de forma simples
+    div.two-data
+      +sensorInformation("Temperatura", "23º", "17/01/2025")
+      +sensorInformation("Umidade", "70%", "17/01/2025")
+    div
+      +sensorInformation("Qualidade do ar", "Boa", "17/01/2025")
+    div.two-data
+      +sensorInformation("Presença de fumaça", "35%", "17/01/2025")
+      +sensorInformation("Detecção de gás inflamável", "70%", "17/01/2025")
+    div 
+      +sensorInformation("Chuva", "Não há indices de chuva", "17/01/2025")
+
+block footer 
+    | © 2025 - 
+    | Desenvolvido por 
+    a(href="https://github.com/joaomrsouza", target="_blank")  João Marcos 
+    | e 
+    a(href="https://github.com/AnaLara714", target="_blank")  Ana Lara
+    |  - Sistemas Embarcados 2024.2
 

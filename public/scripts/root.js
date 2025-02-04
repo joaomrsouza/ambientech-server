@@ -40,11 +40,11 @@ function renderGraphic(element, dataset, title) {
           },
         },
         y: {
-          maxTicksLimit: 5,
           ticks: {
             font: {
-              size: 10, // 🚩 Tamanho da fonte do eixo Y
+              size: 10,
             },
+            maxTicksLimit: 8,
           },
         },
       },

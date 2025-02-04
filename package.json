@@ -7,20 +7,18 @@
     "start": "bun run src/index.ts",
     "postinstall": "prisma generate"
   },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/express": "^5.0.0",
-    "prisma": "^6.2.1"
-  },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.0",
     "agenda": "^5.0.0",
     "chart.js": "^4.4.7",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "prisma": "^6.2.1",
     "pug": "^3.0.3",
     "zod": "^3.24.1"
   }

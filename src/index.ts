@@ -7,7 +7,7 @@ import { databaseConnect, prisma } from "./database";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-databaseConnect(app);
+// databaseConnect(app);
 
 app.use(express.static(join(__dirname, "../public")));
 app.use(express.json());
@@ -66,3 +66,4 @@ process.on("uncaughtException", (error) => {
   console.error(`App exiting due to an uncaught exception: ${error}`);
   process.exit(ExitStatus.Failure);
 });
+app.emit("ready");

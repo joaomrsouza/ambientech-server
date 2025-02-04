@@ -18,6 +18,7 @@ app.use(router);
 
 app.on("ready", () => {
   try {
+    console.log("Server: Server is ready");
     app.listen(PORT, () => {
       // eslint-disable-next-line no-console
       console.log(`Server: Server is listening on port ${PORT}`);

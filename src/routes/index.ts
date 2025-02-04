@@ -17,6 +17,6 @@ router.route("/unsubscribe").get(unsubscribe);
 
 router.route("/api/query").get(query);
 
-router.route("/api/register").get(register);
+router.route("/api/register").post(register);
 
 router.route("*").get(notFound);

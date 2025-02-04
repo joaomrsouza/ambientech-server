@@ -6,10 +6,13 @@ import { notify } from "./notify";
 import { unsubscribe } from "./unsubscribe";
 import { query } from "./api/query";
 import { register } from "./api/register";
+import { health } from "./health";
 
 export const router = Router();
 
 router.route("/").get(root);
+
+router.route("/health").get(health);
 
 router.route("/notify").get(notify);
 

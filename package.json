@@ -3,7 +3,9 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun src/index.ts"
+    "dev": "bun src/index.ts",
+    "start": "bun src/index.ts",
+    "postinstall": "prisma generate"
   },
   "devDependencies": {
     "@types/bun": "latest",

@@ -1,3 +1,93 @@
-h1 {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+header {
+  background: #006ffe;
+  color: #fff;
+  text-align: center;
+  font-family: "Lilita One", serif;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 15px;
+}
+
+body {
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  font-family: "Nunito", serif;
+  font-weight: 400;
+  font-size: 10px;
+  color: #272525;
+  padding: 15px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+main {
+  margin-top: 25px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 25px;
+  font-family: "Nunito", serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+}
+
+.sensorInformation {
+  background: #006efe40;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nunito", serif;
+  height: 270px;
+  margin: 5px;
+}
+
+.two-data {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.header:nth-child(2) {
+  font-weight: 800;
+}
+
+.update {
+  font-size: 8px;
+  opacity: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  gap: 3px;
+}
+
+@media screen and (max-device-width: 425px) {
+  .two-data {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-device-width: 768px) {
+  main {
+    width: 92%;
+  }
 }

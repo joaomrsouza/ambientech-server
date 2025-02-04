@@ -1,12 +1,45 @@
+//- extends { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 extends ./templates/default
 
 block head
   link(rel="stylesheet" href="/stylesheets/root.css")
+  script(src="https://cdn.jsdelivr.net/npm/chart.js")
+  script.
+    const sensorData = !{JSON.stringify(sensorData)}
+
+mixin sensorGraphic(dataKey, dataTitle)
+  canvas(width="280" height="200" data-key=dataKey data-title=dataTitle)
+
+mixin sensorInformation(key, title)
+  -
+    const data = sensorData[`${key}Data`];
+    const lastData = data[data.length - 1];
+  div.sensorInformation
+    .header
+      .sensorName 
+        span=title
+        span :
+      span=lastData ? lastData.value : "-"
+    //- .value
+    .update
+      span Última atualização:
+      span=lastData ? lastData.timestamp.toLocaleString() : "-"
+    .graphic
+      +sensorGraphic(key, title)
 
 block content
-  h1 Temperatura
+  main
+    h2 Acompanhe o seu ambiente de forma simples
+    div.two-data
+      +sensorInformation("temperature", "Temperatura")
+      +sensorInformation("humidity", "Umidade")
+    div
+      +sensorInformation("qOA", "Qualidade do ar")
+    div.two-data
+      +sensorInformation("smoke", "Presença de fumaça")
+      //- +sensorInformation("Detecção de gás inflamável", "70%", "17/01/2025")
+    div
+      +sensorInformation("rain", "Chuva")
 
-  ul
-    each td in tempData
-      li Timestamp: #{td.timestamp} | Value: #{td.value}
+    script(src="/scripts/root.js")
 

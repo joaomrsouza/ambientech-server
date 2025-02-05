@@ -16,15 +16,15 @@ export async function root(_req: Request, res: Response) {
 
   const where = {
     timestamp: {
-      gte: new Date(correctedDate),
-      lt: new Date(
-        new Date(correctedDate).setDate(new Date(correctedDate).getDate() + 1)
-      ),
+      gte: new Date(today),
+      lt: new Date(new Date(today).setDate(new Date(today).getDate() + 1)),
     },
     value: { not: 0 },
   };
 
-  console.log(JSON.stringify({ localDate, today, where }, null, 2));
+  console.log(
+    JSON.stringify({ localDate, today, correctedDate, where }, null, 2)
+  );
 
   const [temperatureData, humidityData, rainData, qOAData, smokeData] =
     await Promise.all([

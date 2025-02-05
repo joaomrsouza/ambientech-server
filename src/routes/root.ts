@@ -32,6 +32,7 @@ export async function root(_req: Request, res: Response) {
         correctedDate,
         where,
         dateToday: new Date(localDate.replace("Z", "+03:00")),
+        localOffset: new Date().getTimezoneOffset(),
       },
       null,
       2

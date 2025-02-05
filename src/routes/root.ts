@@ -2,6 +2,30 @@ import type { Request, Response } from "express";
 import { prisma } from "../database";
 
 export async function root(_req: Request, res: Response) {
+  const dateFromServer = new Date(); // California midnight
+  const serverOffset = new Date().getTimezoneOffset(); // in minutes, from that API call
+  const serverOffsetMillis = 60 * 1000 * serverOffset;
+  const localOffset = -60 * 3; // in minutes
+  const localOffsetMillis = 60 * 1000 * localOffset;
+  const localMidnight = new Date(
+    dateFromServer.getTime() - serverOffsetMillis + localOffsetMillis
+  );
+  console.log(
+    JSON.stringify(
+      {
+        dateFromServer,
+        serverOffset,
+        serverOffsetMillis,
+        localOffset,
+        localOffsetMillis,
+        localMidnight,
+        localMidnightString: localMidnight.toString(),
+      },
+      null,
+      2
+    )
+  );
+
   const localDate = new Date(
     new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
       .toISOString()

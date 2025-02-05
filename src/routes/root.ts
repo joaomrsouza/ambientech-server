@@ -5,7 +5,7 @@ export async function root(_req: Request, res: Response) {
   const localDate = new Date(
     Date.now() - new Date().getTimezoneOffset() * 60000
   ).toISOString();
-  const today = localDate.split("T")[0]! + "T00:00:00.000-03:00";
+  const today = localDate.split("T")[0]! + "T00:00:00.000+03:00";
 
   const where = {
     timestamp: {
@@ -15,7 +15,7 @@ export async function root(_req: Request, res: Response) {
     value: { not: 0 },
   };
 
-  console.log(JSON.stringify(where, null, 2));
+  console.log(JSON.stringify({ localDate, today, where }, null, 2));
 
   const [temperatureData, humidityData, rainData, qOAData, smokeData] =
     await Promise.all([

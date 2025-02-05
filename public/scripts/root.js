@@ -1,6 +1,6 @@
 function renderGraphic(element, dataset, title) {
-  const labels = dataset.map((data) =>
-    new Date(data.timestamp).toLocaleTimeString()
+  const labels = dataset.map(
+    (data) => new Date(data.timestamp).toISOString().split("T")[1].split(".")[0]
   );
 
   const readings = dataset.map((data) => data.value);

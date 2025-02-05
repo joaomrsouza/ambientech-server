@@ -1,4 +1,3 @@
-//- extends { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 extends ./templates/default
 
 block head
@@ -16,7 +15,7 @@ mixin sensorInformation(key, title, unitMeasurement)
     const lastData = data[data.length - 1];
   div.sensorInformation
     .header
-      .sensorName 
+      .sensorName
         span=title
         span :
       .value=lastData ? lastData.value : "-"
@@ -24,7 +23,7 @@ mixin sensorInformation(key, title, unitMeasurement)
     //- .value
     .update
       span Última atualização:
-      span=lastData ? lastData.timestamp.toLocaleString() : "-"
+      span=lastData ? lastData.timestamp.toISOString().split("T").map((d, i) => i === 0 ? d.split("-").reverse().join("/") : d.split(".")[0]).join(" ") : "-"
     .graphic
       +sensorGraphic(key, title)
 
@@ -34,11 +33,11 @@ block content
     div.two-data
       +sensorInformation("temperature", "Temperatura", "ºC")
       +sensorInformation("humidity", "Umidade", "%")
-    div
+    //- div
       +sensorInformation("qOA", "Qualidade do ar", "%")
-    div.two-data
+    //- div.two-data
       +sensorInformation("smoke", "Presença de fumaça", "%")
-      //- +sensorInformation("Detecção de gás inflamável", "70%", "17/01/2025")
+      +sensorInformation("Detecção de gás inflamável", "70%", "17/01/2025")
     div
       +sensorInformation("rain", "Chuva")
 

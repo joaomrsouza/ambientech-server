@@ -3,9 +3,11 @@ import { prisma } from "../database";
 
 export async function root(_req: Request, res: Response) {
   const localDate = new Date(
-    Date.now() - new Date().getTimezoneOffset() * 60000
+    new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .replace("z", "+03:00")
   ).toISOString();
-  const today = localDate.split("T")[0]! + "T00:00:00.000-03:00";
+  const today = localDate.split("T")[0]! + "T00:00:00.000";
 
   const yesterday = new Date(
     new Date(today).setDate(new Date(today).getDate() - 1)
@@ -29,7 +31,7 @@ export async function root(_req: Request, res: Response) {
         today,
         correctedDate,
         where,
-        dateToday: new Date(localDate.replace("Z", "-03:00")),
+        dateToday: new Date(localDate.replace("Z", "+03:00")),
       },
       null,
       2

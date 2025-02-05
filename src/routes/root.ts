@@ -3,10 +3,9 @@ import { prisma } from "../database";
 import { addDays, setHours, subDays, subHours } from "date-fns";
 
 export async function root(_req: Request, res: Response) {
-  // const correctedDate =
   const today = new Date(
     subHours(
-      new Date().setHours(0, 0, 0, 0),
+      new Date(subHours(new Date(), 3).setHours(0, 0, 0, 0)),
       new Date().getTimezoneOffset() / 60
     )
   );
@@ -14,7 +13,7 @@ export async function root(_req: Request, res: Response) {
   const where = {
     timestamp: {
       gte: today,
-      lt: addDays(today, 1), // new Date(today.setDate(today.getDate() + 1)),
+      lt: addDays(today, 1),
     },
     value: { not: 0 },
   };

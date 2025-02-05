@@ -23,10 +23,13 @@ export async function root(_req: Request, res: Response) {
     JSON.stringify(
       {
         env: process.env.NODE_ENV,
-        // correctedDate,
         today,
         where,
-        localOffset: new Date().getTimezoneOffset(),
+        date: new Date(),
+        subHours: subHours(new Date(), 3),
+        subHoursSetHours: new Date(
+          subHours(new Date(), 3).setHours(0, 0, 0, 0)
+        ),
       },
       null,
       2

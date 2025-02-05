@@ -18,6 +18,9 @@ export async function root(_req: Request, res: Response) {
     },
     value: { not: 0 },
   };
+
+  console.log(JSON.stringify(where, null, 2));
+
   const [temperatureData, humidityData, rainData, qOAData, smokeData] =
     await Promise.all([
       prisma.temperatureData.findMany({ where }),

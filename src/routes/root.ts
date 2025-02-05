@@ -1,7 +1,25 @@
 import type { Request, Response } from "express";
 import { prisma } from "../database";
+import { subHours } from "date-fns";
 
 export async function root(_req: Request, res: Response) {
+  const hj = new Date();
+  const hjm3 = subHours(hj, 3);
+  const hjm300 = new Date(hjm3.setHours(0, 0, 0, 0));
+  console.log(
+    JSON.stringify(
+      {
+        hj,
+        hjm3,
+        hjm300,
+        hjm300String: hjm300.toString(),
+        hjm300ISO: hjm300.toISOString(),
+      },
+      null,
+      2
+    )
+  );
+
   const dateFromServer = new Date(); // California midnight
   const serverOffset = new Date().getTimezoneOffset(); // in minutes, from that API call
   const serverOffsetMillis = 60 * 1000 * serverOffset;

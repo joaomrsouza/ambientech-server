@@ -5,12 +5,21 @@ export async function root(_req: Request, res: Response) {
   const localDate = new Date(
     Date.now() - new Date().getTimezoneOffset() * 60000
   ).toISOString();
-  const today = localDate.split("T")[0]! + "T00:00:00.000+03:00";
+  const today = localDate.split("T")[0]! + "T00:00:00.000-00:00";
+
+  const yesterday = new Date(
+    new Date(today).setDate(new Date(today).getDate() - 1)
+  );
+
+  const correctedDate =
+    process.env.NODE_ENV === "production" ? yesterday : today;
 
   const where = {
     timestamp: {
-      gte: new Date(today),
-      lt: new Date(new Date(today).setDate(new Date(today).getDate() + 1)),
+      gte: new Date(correctedDate),
+      lt: new Date(
+        new Date(correctedDate).setDate(new Date(correctedDate).getDate() + 1)
+      ),
     },
     value: { not: 0 },
   };

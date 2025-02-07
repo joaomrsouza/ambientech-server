@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { prisma } from "../database";
-import { addDays, setHours, subDays, subHours } from "date-fns";
+import { addDays, subHours } from "date-fns";
 
 export async function root(_req: Request, res: Response) {
   const today = new Date(

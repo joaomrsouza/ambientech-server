@@ -53,6 +53,7 @@ export async function register(req: Request, res: Response) {
     };
 
     await handlers[receivedData.sensor]();
+    // TODO: Call job notify
 
     res.sendStatus(200);
   } catch (error) {

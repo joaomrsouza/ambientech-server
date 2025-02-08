@@ -3,7 +3,6 @@
 ## Server
 
 - Script no front para atualizar os dados
-- Separar o css do template default e das páginas
 - Deixar o dia mostrado bem visível
 - Implementar algo para trocar o dia de visualização
 - Tratar os dados de uma forma melhor (chuva)

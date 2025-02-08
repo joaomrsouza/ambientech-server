@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+h2 {
+  font-family: "Nunito", serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}
+
+img {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.button-return {
+  margin: 3% auto;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #006ffe;
+}
+
+.button-return:hover {
+  cursor: pointer;
+  background-color: #0060de;
+}
+
+.button-return:active {
+  background-color: #003e8f;
+}
+
+@media screen and (max-device-width: 768px) {
+  img {
+    width: 80%;
+  }
+
+  .button-return {
+    font-size: 12px;
+  }
+}

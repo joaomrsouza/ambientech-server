@@ -1,7 +1,6 @@
 extends ./templates/default
 
 block head
-  link(rel="stylesheet" href="/stylesheets/root.css")
   script(src="https://cdn.jsdelivr.net/npm/chart.js")
   script.
     const sensorData = !{JSON.stringify(sensorData)}

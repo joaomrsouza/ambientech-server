@@ -4,7 +4,6 @@
 
 - Script no front para atualizar os dados
 - Separar o css do template default e das páginas
-- Estilizar a not-found
 - Deixar o dia mostrado bem visível
 - Implementar algo para trocar o dia de visualização
 - Tratar os dados de uma forma melhor (chuva)
@@ -21,4 +20,5 @@
 ## ESP
 
 ### Depois
+
 - Ignorar dados com valor 0

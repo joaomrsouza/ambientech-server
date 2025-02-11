@@ -13,7 +13,7 @@ mixin sensorInformation(key, title, unitMeasurement)
   -
     const data = sensorData[`${key}Data`];
     const lastData = data[data.length - 1];
-  div.sensorInformation
+  div(data-key=key).sensorInformation
     .header
       .sensorName
         span=title

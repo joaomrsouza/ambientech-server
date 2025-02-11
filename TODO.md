@@ -2,7 +2,6 @@
 
 ## Server
 
-- Script no front para atualizar os dados
 - Deixar o dia mostrado bem visível
 - Implementar algo para trocar o dia de visualização
 - Tratar os dados de uma forma melhor (chuva)

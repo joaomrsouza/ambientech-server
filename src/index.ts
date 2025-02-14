@@ -2,13 +2,13 @@ import express from "express";
 import { join } from "path";
 
 import { router } from "./routes";
+import { jobService } from "./jobs";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(join(__dirname, "../public")));
 app.use(express.json());
-// TODO: app.use(defineGlobalLocals());
 app.set("view engine", "pug");
 
 app.use(router);
@@ -23,7 +23,7 @@ app.listen(PORT, () => {
 if (process.env.IS_PRODUCTION === "true") {
   // eslint-disable-next-line no-console
   console.log("Starting Jobs");
-  // TODO: startJobs();
+  await jobService.startJobs();
 }
 
 // Process exit/error handlers
@@ -38,7 +38,7 @@ const exitSignals: NodeJS.Signals[] = ["SIGINT", "SIGTERM", "SIGQUIT"];
 for (const sig of exitSignals) {
   process.on(sig, async () => {
     try {
-      // TODO: await stopJobs();
+      await jobService.stopJobs();
       console.info("App exited with success");
       process.exit(ExitStatus.Success);
     } catch (error) {

@@ -14,11 +14,13 @@
     "@prisma/client": "^6.2.1",
     "@types/bun": "latest",
     "@types/express": "^5.0.0",
+    "@types/nodemailer": "^6.4.17",
     "agenda": "^5.0.0",
     "chart.js": "^4.4.7",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "express": "^4.21.2",
+    "nodemailer": "^6.10.0",
     "prisma": "^6.2.1",
     "pug": "^3.0.3",
     "zod": "^3.24.1"

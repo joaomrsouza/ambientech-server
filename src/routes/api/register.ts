@@ -1,9 +1,7 @@
 import type { Request, Response } from "express";
 import { z } from "zod";
 import { prisma } from "../../database";
-
-const sensors = ["temperature", "humidity", "rain", "qoa", "smoke"] as const;
-type Sensor = (typeof sensors)[number];
+import { sensors, type Sensor } from "../../utils/enums";
 
 const dataSchema = z.object({
   sensor: z.enum(sensors),

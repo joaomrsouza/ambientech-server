@@ -30,6 +30,7 @@ export default function emailModel(paragrafos: string[]): string {
           }
           #img img {
             width: 100%;
+            padding: 0 8px;
             background: #006ffe;
           }
           #tiny {

@@ -40,11 +40,18 @@ function createGraphic(element, title, labels, readings) {
           },
         },
         y: {
+          ...(title === "Temperatura"
+            ? {}
+            : {
+                beginAtZero: true,
+                min: 0,
+                max: 100,
+              }),
           ticks: {
             font: {
               size: 10,
             },
-            maxTicksLimit: 8,
+            maxTicksLimit: 10,
           },
         },
       },

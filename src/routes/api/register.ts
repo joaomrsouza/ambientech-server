@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import { z } from "zod";
 import { prisma } from "../../database";
 import { sensors, type Sensor } from "../../utils/enums";
+import { jobService } from "../../jobs";
 
 const dataSchema = z.object({
   sensor: z.enum(sensors),
@@ -51,7 +52,11 @@ export async function register(req: Request, res: Response) {
     };
 
     await handlers[receivedData.sensor]();
-    // TODO: Call job notify
+
+    await jobService.getAgenda().now(jobService.notify.name, {
+      sensor: receivedData.sensor,
+      data: receivedData.data.map((d) => d.value),
+    });
 
     res.sendStatus(200);
   } catch (error) {

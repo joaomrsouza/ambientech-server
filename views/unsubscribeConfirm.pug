@@ -1,0 +1,12 @@
+extends ./templates/default
+
+block head
+  link(rel="stylesheet" href="/stylesheets/notifyConfirm.css")
+
+block content
+  main
+    div.container
+      h2.title-container Notificações
+      span Você não receberá mais notificações de alteração no ambiente!
+        | #{" "}
+        a(href="/" class="button-return") Página Inicial

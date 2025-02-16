@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+.container {
+  background: #006ffe10;
+  border-radius: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-container {
+  font-family: "Lilita One", sans-serif;
+  background: #006efed8;
+  color: #fff;
+  padding: 15px 0;
+  border-radius: 8px;
+  width: 95%;
+  margin-top: 15px;
+  margin-bottom: 5%;
+}
+
+#unsubscribeForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  gap: 10px;
+  margin-bottom: 5%;
+  justify-content: flex-start;
+}
+
+form > span {
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+form > input {
+  background: #006efed8;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  width: 80px;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+form > input[type="submit"]:active {
+  background: #006efe72;
+}

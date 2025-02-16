@@ -14,9 +14,11 @@ router.route("/").get(root);
 
 router.route("/health").get(health);
 
-router.route("/notify").get(notify);
+router.route("/notify").get(notify.get).post(notify.post);
 
-router.route("/unsubscribe").get(unsubscribe);
+router.route("/unsubscribe").post(unsubscribe.post);
+
+router.route("/unsubscribe/:email").get(unsubscribe.get);
 
 router.route("/api/query").get(query);
 

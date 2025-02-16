@@ -20,7 +20,6 @@ mixin sensorInformation(key, title, unitMeasurement)
         span :
       .value=lastData ? lastData.value : "-"
       span=unitMeasurement
-    //- .value
     .update
       span Última atualização:
       span=lastData ? lastData.timestamp.toISOString().split("T").map((d, i) => i === 0 ? d.split("-").reverse().join("/") : d.split(".")[0]).join(" ") : "-"
@@ -33,13 +32,12 @@ block content
     div.two-data
       +sensorInformation("temperature", "Temperatura", "ºC")
       +sensorInformation("humidity", "Umidade", "%")
-    //- div
+    div.two-data
       +sensorInformation("qOA", "Qualidade do ar", "%")
-    //- div.two-data
       +sensorInformation("smoke", "Presença de fumaça", "%")
-      +sensorInformation("Detecção de gás inflamável", "70%", "17/01/2025")
     div
       +sensorInformation("rain", "Chuva")
+    a(href="/notify" class="button") Receber notificação do monitoramento do ambiente
 
     script(src="/scripts/root.js")
 

@@ -1,0 +1,34 @@
+extends ./templates/default
+
+block head
+  link(rel="stylesheet" href="/stylesheets/notify.css")
+
+block content
+  main
+    h2 Informe em qual evento você deseja receber um aviso.
+    div.container
+      h2.title-container Notificações
+      form(action="/notify" method="POST" id="notifyForm")
+        .select-box
+          label Monitorar
+          select(required name="sensor" class="select" id="mainSelect")
+            option(value="") Selecionar
+            option(value="temperature") Temperatura
+            option(value="humidity") Umidade
+            option(value="rain") Chuva
+            option(value="qoa") Qualidade do Ar
+            option(value="smoke") Presença de fumaça
+        .select-box
+          label Cenário
+          select(required name="cenario" class="select" id="subSelect")
+            option(value="") Selecionar
+
+        #valueTemp.hidden
+          label(for="tempInput") °C
+          input(type="number" max="99" id="tempInput" name="valor")
+        .email
+          label Email:
+          input(required type="email" id="email" name="email")
+          input(type="submit" value="Inscrever-se")
+
+  script(src="/scripts/notify.js")

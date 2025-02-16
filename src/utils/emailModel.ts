@@ -1,5 +1,8 @@
-export default function emailModel(paragrafos: string[]): string {
-  const ssl = process.env.ENABLE_SSL ? "https://" : "http://";
+export default function emailModel(
+  paragrafos: string[],
+  email: string
+): string {
+  const ssl = process.env.ENABLE_SSL === "true" ? "https://" : "http://";
   const host = ssl + process.env.HOST;
 
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,6 +58,7 @@ export default function emailModel(paragrafos: string[]): string {
           <div id="tiny">
             <p>Este e-mail foi enviado de um endereço que apenas envia notificações e não pode receber e-mails.</p>
             <p>Não responda a esta mensagem.</p>
+            <p>Se não desejar receber mais emails <a href="${host}/unsubscribe/${email}">clique aqui!</a></p>
             <p>Ambientech ${new Date().getFullYear()}</p>
           </div>
         </div>

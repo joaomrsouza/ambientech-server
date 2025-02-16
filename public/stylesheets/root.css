@@ -29,6 +29,16 @@
   gap: 3px;
 }
 
+.button {
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #006ffe;
+}
+
 @media screen and (max-device-width: 425px) {
   .two-data {
     display: flex;

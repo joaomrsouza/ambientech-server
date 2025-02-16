@@ -1,0 +1,14 @@
+extends ./templates/default
+
+block head
+  link(rel="stylesheet" href="/stylesheets/unsubscribe.css")
+
+block content
+  main
+    h2 Confirme caso deseje não receber mais avisos.
+    div.container
+      h2.title-container Notificações
+      form(action="/unsubscribe" method="POST")
+        span O email #{email} deseja não receber mais notificações do Ambientech
+        input(type="hidden" name="email" value=email)
+        input(type="submit" value="Confirmar")

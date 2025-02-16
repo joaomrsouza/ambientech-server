@@ -17,7 +17,6 @@ export async function query(_req: Request, res: Response) {
       gte: today,
       lt: addDays(today, 1),
     },
-    value: { not: 0 },
   };
 
   const [temperatureData, humidityData, rainData, qOAData, smokeData] =

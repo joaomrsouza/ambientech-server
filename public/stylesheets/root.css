@@ -29,17 +29,24 @@
   gap: 3px;
 }
 
+div:last-of-type {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   text-decoration: none;
   font-family: "Nunito", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   color: #fff;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   background-color: #006ffe;
+  margin-top: 15px;
+  text-align: center;
 }
 
-@media screen and (max-device-width: 425px) {
+@media (max-width: 670px) {
   .two-data {
     display: flex;
     flex-direction: column;

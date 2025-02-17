@@ -74,10 +74,15 @@ const operatorHandlers: Record<
   "Chuva Forte": (data) =>
     data.every((d) => d > 75) &&
     "☔ Alerta! A chuva está forte. Se possível, procure abrigo até passar, e evite sair desprotegido(a)! ⛈️",
-  // TODO: Ajustar esses valores
-  // "Boa": (data) => () && "",
-  // "Ruim": (data) => () && "",
-  // "Muito Ruim": (data) => () && "",
+  Boa: (data) =>
+    data.every((d) => d > 50) &&
+    "🍃 A quailidade do ar está boa, aproveite o ar livre! 😄",
+  Ruim: (data) =>
+    data.every((d) => d < 50) &&
+    "⚠️ Atenção o ar está ruim! Se puder, evite esforço excessivo ao ar livre e cuide da respiração! 😷 ",
+  "Muito Ruim": (data) =>
+    data.every((d) => d < 30) &&
+    "🚨 Cuidado! A qualidade do ar está muito ruim, o ar está muito poluído. Evite exposição prolongada e, se possível, use máscara ou fique em locais fechados! 🏠😷",
   Moderada: (data) =>
     data.every((d) => d <= 40) &&
     "🌫️ Atenção! A fumaça está moderada. Fique atento(a), evite áreas com muita exposição e cuide da sua respiração! 😊",

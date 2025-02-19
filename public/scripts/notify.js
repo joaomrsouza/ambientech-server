@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const options = {
     temperature: ["Temperatura", ["É maior que", "É menor que"]],
     humidity: ["Umidade", ["Umidade crítica", "Umidade Baixa", "Umidade Alta"]],
-    rain: ["Chuva", ["Sereno", "Chuva Moderada", "Chuva Forte"]],
+    rain: ["Chuva", ["Sem chuva", "Sereno", "Chuva Moderada", "Chuva Forte"]],
     qoa: ["Qualidade do Ar", ["Boa", "Ruim", "Muito Ruim"]],
     smoke: ["Presença de Fumaça", ["Moderada", "Forte", "Critica"]],
   };

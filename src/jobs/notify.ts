@@ -66,6 +66,8 @@ const operatorHandlers: Record<
   "Umidade Alta": (data) =>
     data.every((d) => d > 60) &&
     "🌫️ A umidade está alta! Fique atento ao ambiente e tome precauções para manter o conforto e a saúde. 😊",
+  "Sem chuva": (data) =>
+    data.every((d) => d <= 0) && "😎 Atenção! Sem chuva no momento! ☀️",
   Sereno: (data) =>
     data.every((d) => d <= 45) && "☔ Atenção! Sereno no momento! 🌦️",
   "Chuva Moderada": (data) =>
